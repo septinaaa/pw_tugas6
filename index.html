@@ -297,7 +297,7 @@
                 const commentList = document.getElementById('comment-list');
                 comments.forEach(comment => {
                     const commentDiv = document.createElement('div');
-                    commentDiv.innerHTML = <h3>${comment.name}</h3><p>${comment.body}</p>;
+                    commentDiv.innerHTML = `<h3>${comment.name}</h3><p>${comment.body}</p>`;
                     commentList.appendChild(commentDiv);
                 });
             } catch (error) {
@@ -314,7 +314,7 @@
                 const mediaList = document.getElementById('media-list');
                 photos.forEach(photo => {
                     const mediaDiv = document.createElement('div');
-                    mediaDiv.innerHTML = <img src="${photo.download_url}" alt="Foto oleh ${photo.author}">;
+                    mediaDiv.innerHTML = `<img src="${photo.download_url}" alt="Foto oleh ${photo.author}">`;
                     mediaList.appendChild(mediaDiv);
                 });
             } catch (error) {
