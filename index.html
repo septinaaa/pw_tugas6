@@ -6,6 +6,7 @@
     <title>Portofolio Septina Nurfajar Azahrah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Gaya tetap sama seperti sebelumnya */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -15,7 +16,6 @@
             background-size: cover;
             color: #333;
         }
-
         header {
             display: flex;
             flex-direction: column;
@@ -24,7 +24,6 @@
             color: #fff;
             padding: 20px 0;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
@@ -32,16 +31,13 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-
         nav ul li {
             margin: 0 15px;
         }
-
         nav ul li a {
             color: #fff;
             text-decoration: none;
         }
-
         main {
             display: grid;
             grid-template-columns: 1fr;
@@ -52,18 +48,15 @@
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
         section {
             margin-bottom: 30px;
             padding: 20px;
             border-radius: 8px;
             background: #e9ecef;
         }
-
         h2 {
             color: #007bff;
         }
-
         article {
             margin-bottom: 20px;
             padding: 15px;
@@ -71,30 +64,25 @@
             display: flex;
             align-items: center;
         }
-
         article i {
             font-size: 36px;
             color: #007bff;
             margin-right: 15px;
         }
-
         img {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
         }
-
         form {
             background: white;
             padding: 20px;
             border-radius: 5px;
         }
-
         label {
             display: block;
             margin: 10px 0 5px;
         }
-
         input, textarea {
             width: 100%;
             padding: 10px;
@@ -102,7 +90,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
             background: #007bff;
             color: white;
@@ -111,11 +98,9 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         button:hover {
             background: #0056b3;
         }
-
         footer {
             text-align: center;
             padding: 10px 0;
@@ -125,47 +110,38 @@
             bottom: 0;
             width: 100%;
         }
-
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 10px;
         }
-
         .guestbook {
             margin-top: 20px;
         }
-
         .guest-entry {
             display: flex;
             justify-content: space-between;
             margin: 5px 0;
         }
-
         .guest-entry button {
             margin-left: 5px;
         }
-
         .comment, .media {
             margin-bottom: 20px;
             padding: 15px;
             border-radius: 8px;
             background: #f8f9fa;
         }
-
         .comment h3, .media h3 {
             margin-top: 0;
         }
-
         .comment p {
             margin: 5px 0;
         }
-
         .media img {
             width: 100%;
             border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -238,7 +214,6 @@
 
         <section id="contact">
             <h2>Kontak</h2>
-            <p>Jika Anda memiliki pertanyaan, saran, atau ingin berdiskusi lebih lanjut, jangan ragu untuk menghubungi saya melalui formulir di bawah ini. Saya akan berusaha untuk merespons secepatnya!</p>
             <form action="#" method="post">
                 <label for="name">Nama:</label>
                 <input type="text" id="name" name="name" required>
@@ -281,7 +256,6 @@
     </footer>
 
     <script>
-        // Tambah tamu
         function addGuest() {
             const nameInput = document.getElementById('guest-name');
             const name = nameInput.value.trim();
@@ -315,16 +289,15 @@
             nameInput.value = '';
         }
 
-        // Mengambil komentar dari API
         async function fetchComments() {
             try {
-                const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=3'); // Batasi jumlah komentar
+                const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=3');
                 const comments = await response.json();
 
                 const commentList = document.getElementById('comment-list');
                 comments.forEach(comment => {
                     const commentDiv = document.createElement('div');
-                    commentDiv.innerHTML = `<h3>${comment.name}</h3><p>${comment.body}</p>`;
+                    commentDiv.innerHTML = <h3>${comment.name}</h3><p>${comment.body}</p>;
                     commentList.appendChild(commentDiv);
                 });
             } catch (error) {
@@ -332,16 +305,16 @@
             }
         }
 
-        // Mengambil media dari API
+        // GANTI DI SINI: Mengambil gambar media nyata dari API Picsum Photos
         async function fetchMedia() {
             try {
-                const response = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=4'); // Batasi jumlah gambar
+                const response = await fetch('https://picsum.photos/v2/list?limit=4');
                 const photos = await response.json();
 
                 const mediaList = document.getElementById('media-list');
                 photos.forEach(photo => {
                     const mediaDiv = document.createElement('div');
-                    mediaDiv.innerHTML = `<img src="${photo.thumbnailUrl}" alt="${photo.title}">`;
+                    mediaDiv.innerHTML = <img src="${photo.download_url}" alt="Foto oleh ${photo.author}">;
                     mediaList.appendChild(mediaDiv);
                 });
             } catch (error) {
@@ -349,7 +322,6 @@
             }
         }
 
-        // Memanggil fungsi fetch saat halaman dimuat
         window.onload = () => {
             fetchComments();
             fetchMedia();
